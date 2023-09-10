@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -19,7 +22,11 @@ public class Food {
     //@JoinColumn(name = "user_id")
     //private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    //@ManyToOne
+    //@JoinColumn(name = "user_id")
+    //private User user;
+
+    @OneToMany
+    @JoinColumn(name = "food_id") // users 테이블에 food_id 컬럼
+    private List<User> userList = new ArrayList<>();
 }
